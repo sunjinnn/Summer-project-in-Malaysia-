@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mom, That's not me!</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>🧠 Mom, That's not me!</h1>
+    <nav>
+      <a href="main.html" class="active">Introduction</a>
+      <a href="examples.html">Real Cases</a>
+      <a href="actions.html">Prevention</a>
+      <a href="quiz.html">Spot the Fake</a>
+    </nav>
+    <div>
+      <button id="themeToggle">🌙 다크모드</button>
+      <button id="languageToggle">🌐 English</button>
+    </div>
+  </header>
+
+<main>
+  <!-- 1. Hero Section -->
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1 data-i18n="hero_title">부모님을 위한<br>딥페이크 구별 가이드</h1>
+      <p data-i18n="hero_desc">AI로 조작된 목소리와 영상, 부모님은 안전하신가요?<br>지금 바로 확인하세요.</p>
+      <button class="btn" onclick="location.href='examples.html'" data-i18n="hero_button">사례 보러가기</button>
+    </div>
+    <div class="hero-image">
+      <img src="media\main.jpg" alt="딥페이크 예시 이미지" />
+    </div>
+  </section>
+
+  <!-- 2. 딥페이크 소개 섹션 -->
+  <section class="intro-section better-layout">
+    <div class="intro-text-box">
+      <h2 data-i18n="intro_title">딥페이크란?</h2>
+      <p data-i18n="intro_body1">
+        딥페이크는 인공지능(AI)을 활용해 사람의 얼굴, 목소리, 말투를 실제처럼 <strong>정교하게 조작하는 기술</strong>입니다.<br>
+        뉴스, 전화, 영상통화 등 일상 속 콘텐츠에 침투해<br>우리 부모님 세대를 <strong>속이는 수단</strong>으로 사용되고 있습니다.
+      </p>
+      <p class="highlight-warning" data-i18n="intro_warning">
+        특히 부모님 세대는 기술에 익숙하지 않아 피해 가능성이 높습니다.<br>
+        이제는 가족 모두가 함께 알아야 할 위험입니다.
+      </p>
+    </div>
+    <div class="intro-card-box">
+      <div class="stat-card">
+        <div class="stat-header" data-i18n="stat_title">📈 딥페이크 범죄 증가율</div>
+        <div class="stat-number">+820%</div>
+        <div class="stat-sub">2020 → 2024</div>
+        <div class="stat-footer" data-i18n="stat_source">출처: 사이버 범죄 보고서 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Website Structure Section -->
+  <section class="structure-section">
+    <h2 class="section-title" data-i18n="structure_title">Website Structure</h2>
+    <div class="structure-grid">
+      <div class="structure-item">
+        <h3 data-i18n="s1_title">01 Introduction</h3>
+        <p data-i18n="s1_desc">딥페이크가 무엇이고 왜 위험한지 간략히 소개</p>
+      </div>
+      <div class="structure-item">
+        <h3 data-i18n="s2_title">02 Real Cases</h3>
+        <p data-i18n="s2_desc">부모님 세대를 속인 실제 사례 소개</p>
+      </div>
+      <div class="structure-item">
+        <h3 data-i18n="s3_title">03 Prevention</h3>
+        <p data-i18n="s3_desc">딥페이크 식별 팁 및 체크리스트 제공</p>
+      </div>
+      <div class="structure-item">
+        <h3 data-i18n="s4_title">04 Spot the Fake</h3>
+        <p data-i18n="s4_desc">딥페이크 구별 퀴즈</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <p>© 2025 Deepfake Awareness | Contact: haejin@example.com</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

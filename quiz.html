@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spot the Fake</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+.progress-bar {
+  height: 10px;
+  background-color: var(--accent-color);
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+.progress-container {
+  position: sticky;
+  top: 70px;
+  z-index: 999;
+  background: #eee;
+  border-radius: 5px;
+  height: 10px;
+  margin-bottom: 2rem;
+}
+.retry-button, .submit-button {
+  margin-top: 2rem;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.result-box {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+.quiz-box {
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 3rem auto;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 Mom, That's not me!</h1>
+    <nav>
+      <a href="main.html">Introduction</a>
+      <a href="examples.html">Real Cases</a>
+      <a href="actions.html">Prevention</a>
+      <a href="quiz.html" class="active">Spot the Fake</a>
+    </nav>
+    <div>
+      <button id="themeToggle">🌙 Dark Mode</button>
+      <button id="languageToggle">🌐 Korean</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="quiz">
+      <h2>Spot the Fake</h2>
+      <div class="progress-container"><div id="progress" class="progress-bar"></div></div>
+
+      <form id="quizForm">
+        <div class="quiz-box">
+          <p>Q1. "Mom, it's me. I urgently need money. Please don't tell anyone and send it right away."
+          <br>If this voice or video uses the real appearance and voice of a family member, it must be trustworthy.</p>
+          <button type="button" onclick="markAnswer(0, 'false')">O</button>
+          <button type="button" onclick="markAnswer(0, 'true')">X</button>
+        </div>
+
+        <div class="quiz-box">
+          <p>Q2. Which of the images below is a manipulated profile photo? ０１</p>
+          <img src="media\1.png" class="quiz-img" onclick="markAnswer(1, 'false')">
+          <img src="media\2.png" class="quiz-img" onclick="markAnswer(1, 'true')">
+        </div>
+
+        <div class="quiz-box">
+          <p>Q3. Which of the images below is a manipulated profile photo? ０２</p>
+          <img src="media\3.png" class="quiz-img" onclick="markAnswer(2, 'true')">
+          <img src="media\4.png" class="quiz-img" onclick="markAnswer(2, 'false')">
+        </div>
+
+        <div class="quiz-box">
+          <p>Q4. What is a typical feature of an AI-generated news article?</p>
+          <button type="button" onclick="markAnswer(3, 'true')">It contains repeated sentences and lacks coherence</button>
+          <button type="button" onclick="markAnswer(3, 'false')">It provides abundant fact-based evidence</button>
+        </div>
+
+        <div class="quiz-box">
+          <p>Q5. Is a deepfake video created by AI manipulating a real person's face and voice?</p>
+          <button type="button" onclick="markAnswer(4, 'true')">O</button>
+          <button type="button" onclick="markAnswer(4, 'false')">X</button>
+        </div>
+      </form>
+
+      <div style="text-align:center;">
+        <button class="submit-button" onclick="submitQuiz()">✅ See Answers</button>
+        <button class="retry-button" onclick="location.reload()">🔁 Try Again</button>
+      </div>
+
+      <div id="result" class="result-box"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Source: Civic organizations, news reports, technical research<br />Contact: haejin@example.com</p>
+  </footer>
+
+  <script>
+    const answers = ['true', 'true', 'true', 'true', 'true'];
+    const userAnswers = [null, null, null, null, null];
+
+    function markAnswer(index, value) {
+      if (userAnswers[index] === null) {
+        userAnswers[index] = value;
+        updateProgress();
+      } else {
+        userAnswers[index] = value;
+      }
+    }
+
+    function updateProgress() {
+      const answeredCount = userAnswers.filter(v => v !== null).length;
+      const percent = (answeredCount / answers.length) * 100;
+      document.getElementById('progress').style.width = percent + '%';
+    }
+
+    function submitQuiz() {
+      if (userAnswers.includes(null)) {
+        alert('You must answer all questions before viewing the results!');
+        return;
+      }
+      let score = 0;
+      for (let i = 0; i < answers.length; i++) {
+        if (userAnswers[i] === answers[i]) score++;
+      }
+      document.getElementById('result').innerText = `🎉 Your score is ${score} / 5!`;
+    }
+  </script>
+</body>
+</html>

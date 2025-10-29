@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Cases</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🧠 Mom, That's not me!</h1>
+    <nav>
+      <a href="main.html">Introduction</a>
+      <a href="examples.html" class="active">Real Cases</a>
+      <a href="actions.html">Prevention</a>
+      <a href="quiz.html">Spot the Fake</a>
+    </nav>
+    <div>
+      <button id="themeToggle">🌙 다크모드</button>
+      <button id="languageToggle">🌐 English</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="example-gallery">
+      <h2 data-i18n="gallery_title">📌 실제 딥페이크 사례 갤러리</h2>
+      <div class="slider-wrapper">
+        <div class="slider-track" id="sliderTrack">
+          <div class="gallery-card">
+            <img src="media\g1.png" />
+            <h3 data-i18n="case1_title">음성 사칭</h3>
+            <p data-i18n="case1_desc">손자 목소리를 복제해 부모에게 금전을 요구</p>
+          </div>
+          <div class="gallery-card">
+            <img src="media\g2.png" />
+            <h3 data-i18n="case2_title">정치인 발언 조작</h3>
+            <p data-i18n="case2_desc">가짜 영상을 퍼뜨려 여론 왜곡 유도</p>
+          </div>
+          <div class="gallery-card">
+            <img src="media\g3.png" />
+            <h3 data-i18n="case3_title">CEO 사칭 이메일</h3>
+            <p data-i18n="case3_desc">딥페이크 음성으로 재무팀에 송금 지시</p>
+          </div>
+          <div class="gallery-card">
+            <img src="media\g4.png" />
+            <h3 data-i18n="case4_title">가짜 투자 홍보</h3>
+            <p data-i18n="case4_desc">유명인의 얼굴을 합성한 투자 영상으로 사기</p>
+          </div>
+          <div class="gallery-card">
+            <img src="media\g5.png" />
+            <h3 data-i18n="case5_title">딥페이크 불법영상</h3>
+            <p data-i18n="case5_desc">유명인 사진을 이용한 불법 유포 영상 제작</p>
+          </div>
+          <div class="gallery-card">
+            <img src="media\g6.png" />
+            <h3 data-i18n="case6_title">뉴스 앵커 조작</h3>
+            <p data-i18n="case6_desc">가짜 뉴스 발표 영상 제작 및 확산</p>
+          </div>
+        </div>
+        <button class="slider-btn left" onclick="slideLeft()">&#60;</button>
+        <button class="slider-btn right" onclick="slideRight()">&#62;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>출처: 시민단체, 뉴스 보도, 기술 연구 자료 등<br>연락처: haejin@example.com</p>
+  </footer>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

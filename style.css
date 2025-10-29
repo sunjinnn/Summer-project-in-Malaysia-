@@ -1,0 +1,588 @@
+/* 공통 색상 변수 */
+:root {
+  --primary-color: #004e92;
+  --accent-color: #ffa500;
+  --bg-color: #f9f9f9;
+  --text-color: #222;
+  --footer-bg: #222;
+  --footer-text: #fff;
+}
+body.dark {
+  --primary-color: #ffa500;
+  --accent-color: #004e92;
+  --bg-color: #222;
+  --text-color: #f9f9f9;
+  --footer-bg: #000;
+  --footer-text: #ccc;
+}
+
+/* 기본 스타일 */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+header h1 {
+  font-size: 1.8rem;
+}
+
+header > div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#languageToggle {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover,
+nav a.active {
+  color: var(--accent-color);
+}
+#themeToggle {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main {
+  padding: 2rem;
+}
+section {
+  padding: 2rem;
+  overflow: visible; /* ✅ sticky 작동 보장 */
+}
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.highlight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 2rem;
+}
+.highlight img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+}
+.carousel img {
+  scroll-snap-align: start;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.quiz-img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 10px;
+}
+.quiz-box {
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+.quiz-box button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 2rem;
+  text-align: center;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* style.css에 추가된 Hero 스타일 */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background-color: #f0faff;
+}
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero-text .btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.hero-text .btn:hover {
+  background-color: #222;
+}
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image img {
+    width: 80%;
+  }
+}
+
+/* 딥페이크 소개 섹션 */
+.intro-section {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.intro-section h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.intro-section p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.intro-section .highlight-warning {
+  font-weight: bold;
+  color: #b10000;
+}
+/* 인트로 섹션 양쪽 분할 레이아웃 */
+.intro-section.two-column {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
+.intro-left {
+  flex: 1;
+  min-width: 280px;
+}
+.intro-left h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.intro-left p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.highlight-warning {
+  font-weight: bold;
+  color: #b10000;
+}
+/* 개선된 intro-section */
+.intro-section.better-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 3rem;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #ffffff, #f9f9ff);
+  flex-wrap: wrap;
+}
+
+.intro-text-box {
+  flex: 1.2;
+  min-width: 300px;
+  text-align: left;
+}
+.intro-text-box h2 {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1.2rem;
+}
+.intro-text-box p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.intro-text-box .highlight-warning {
+  background: #fff3cd;
+  border-left: 5px solid #f0ad4e;
+  padding: 1rem;
+  color: #8a6d3b;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.intro-card-box {
+  flex: 0.8;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-card {
+  background-color: #fffaf3;
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.stat-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e67e22;
+  margin-bottom: 0.3rem;
+}
+
+.stat-sub {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.stat-footer {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+
+/* 웹사이트 구조 섹션은 이전에 안내한 structure-section 그대로 유지 */
+
+
+.structure-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.structure-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+}
+
+.structure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.structure-item {
+  padding: 1.5rem;
+  border-top: 3px solid var(--primary-color);
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+.structure-item h3 {
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.structure-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.example-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.example-section h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.example-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+}
+
+.example-card {
+  display: flex;
+  flex: 0 0 550px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.example-image img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-right: 1px solid #eee;
+}
+
+.example-text {
+  flex: 1;
+  padding: 1rem;
+  text-align: left;
+}
+
+.example-text h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.example-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.example-gallery {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px; /* ✅ 중앙 정렬 + 넓이 제한 */
+}
+
+.slider-track {
+  display: flex;
+  gap: 3rem; /* 카드 사이 간격 */
+  padding: 2rem 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  justify-content: start;
+}
+
+.gallery-card {
+  flex: 0 0 260px; /* 카드 너비 */
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  scroll-snap-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+
+.gallery-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.gallery-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 내비게이션 버튼 (< >) */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 0.2rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+.slider-btn.left {
+  left: 1rem;
+}
+.slider-btn.right {
+  right: 1rem;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.image-card {
+  text-align: center;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+.image-card img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* 💡 prevention-tip 내 카드 정렬 개선 */
+.prevention-tip .grid-fix,
+.prevention-tip .flex-fix {
+  padding-left: 0 !important;
+  justify-content: flex-start;
+}
+
+/* 공통 카드 스타일 정리 */
+.fix-card-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.fix-card {
+  text-align: center;
+  background: rgba(255,255,255,0.3);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.hero h1 {
+  font-size: 50px;
+}
